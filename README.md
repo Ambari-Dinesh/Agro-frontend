@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+FRONTEND REPO LINK----https://github.com/Ambari-Dinesh/Agro-frontend
+BACKEND REPO LINK----https://github.com/Ambari-Dinesh/Agro-backend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+🥦 Fruit & Vegetable Bulk Ordering Platform
+A full-stack application that allows users to order fresh fruits and vegetables in bulk. It supports user login, admin product management, and order tracking.
 
-In the project directory, you can run:
+📁 Project Structure
+bash
+Copy
+Edit
+fruit-veg-ordering-platform/
+│
+├── backend/              # Express.js + PostgreSQL
+├── frontend/             # React.js (Admin & Buyer Interfaces)
+├── README.md
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+💻 Frontend Setup (React)
+1. Navigate to Frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+cd ../frontend
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install Dependencies
 
-### `npm run build`
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Create .env File
+Create a .env file in the frontend directory:
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+VITE_API_URL=http://localhost:5000
+Make sure this URL points to your running backend server.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Start the React App
+npm run dev
+The frontend will be available at: http://localhost:5173
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+👤 Features
+Buyer
+View products
 
-### Code Splitting
+Place orders
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+View order status
 
-### Analyzing the Bundle Size
+Login/Register
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Admin
+Login
 
-### Making a Progressive Web App
+Add/Delete products
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Manage orders (Update status)
 
-### Advanced Configuration
+📸 Screenshots
+Add screenshots here if desired
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+📦 Deployment (Optional)
+You can deploy:
 
-### Deployment
+Frontend: on Vercel or Netlify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Backend: on Render, Railway, or VPS (with PostgreSQL)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Database: Railway or Supabase for managed PostgreSQL

@@ -20,10 +20,10 @@ function Catalogue() {
     }
 
     try {
-      // Decode the token to get user information
+      
       const decodedToken = jwt_decode(token);
 
-      // Check if the user is an admin and redirect to the admin page
+      
       if (decodedToken.role === "admin") {
         navigate("/admin");
         return;
@@ -32,7 +32,7 @@ function Catalogue() {
       console.error("Failed to decode token", error);
     }
 
-    // Fetch products if token exists and user is not admin
+    
     axios
       .get("/products", {
         headers: {
@@ -41,11 +41,11 @@ function Catalogue() {
       })
       .then((res) => {
         setProducts(res.data);
-        setLoading(false);  // Set loading to false after data is fetched
+        setLoading(false);  
       })
       .catch((err) => {
         console.error("Failed to load products", err);
-        setLoading(false);  // Ensure loading is false even on error
+        setLoading(false);  
       });
   }, [navigate]);
 

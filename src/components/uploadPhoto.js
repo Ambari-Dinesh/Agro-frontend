@@ -11,16 +11,16 @@ const uploadFile = async (file) => {
             body: formData
         });
 
-        // Check if the response is ok (status code 2xx)
+       
         if (!response.ok) {
             throw new Error('File upload failed');
         }
 
         const responseData = await response.json();
 
-        // Ensure that the expected data is available in the response
+        
         if (responseData?.secure_url) {
-            return { url: responseData.secure_url }; // Return the URL of the uploaded file
+            return { url: responseData.secure_url };
         } else {
             throw new Error('No URL returned from Cloudinary');
         }

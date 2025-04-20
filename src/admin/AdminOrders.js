@@ -1,38 +1,49 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "../api/axios";
-import AdminNavBar from "../components/AdminNavBar"; // Make sure this path is correct
+import AdminNavBar from "../components/AdminNavBar"; 
 import toast from "react-hot-toast";
+import { UserContext } from "../UserContext";
+import { Navigate } from "react-router-dom";
 
 const AdminOrders = () => {
   const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(false); // State to manage loading status
+  const [loading, setLoading] = useState(false); 
+  const { user } = useContext(UserContext);
 
+  
   useEffect(() => {
+    if (!user || user.role !== "admin") {
+      return; 
+    }
     fetchOrders();
-  }, []);
+  }, [user]); 
+
+  if (!user || user.role !== "admin") {
+    return <Navigate to="/login" />;
+  }
 
   const fetchOrders = async () => {
-    setLoading(true); // Set loading to true when fetching data
+    setLoading(true); 
     try {
       const res = await axios.get("/admin/orders");
       setOrders(res.data);
     } catch (error) {
       console.error("Error fetching orders:", error);
     } finally {
-      setLoading(false); // Set loading to false once data is fetched
+      setLoading(false); 
     }
   };
 
   const updateStatus = async (id, status) => {
-    setLoading(true); // Set loading to true when updating the status
+    setLoading(true); 
     try {
       await axios.put(`/admin/orders/${id}`, { status });
-      toast.success(`order id ${id} updated`)
+      toast.success(`Order id ${id} updated`);
       fetchOrders();
     } catch (error) {
       console.error("Error updating order status:", error);
     } finally {
-      setLoading(false); // Set loading to false after status is updated
+      setLoading(false); 
     }
   };
 
@@ -60,7 +71,7 @@ const AdminOrders = () => {
                   className="w-full h-40 object-cover rounded-lg mb-4"
                 />
                 <div className="space-y-1">
-                  <h3>Order Id:  {order.order_id}</h3>
+                  <h3>Order Id: {order.order_id}</h3>
                   <h3 className="text-xl font-semibold">{order.product_name}</h3>
                   <p className="text-gray-600">Qty: {order.quantity}</p>
                   <p className="text-gray-700 font-medium">₹{order.price}</p>

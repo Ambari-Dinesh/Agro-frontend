@@ -18,9 +18,9 @@ function Signup() {
     setLoading(true);
     setError("");
     try {
-      await axios.post("/auth/signup", form); // Only signup the user (no token needed here)
+      await axios.post("/auth/signup", form); 
       toast.success("SignUp Success")
-      navigate("/login"); // Redirect to login page
+      navigate("/login"); 
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed");
     } finally {

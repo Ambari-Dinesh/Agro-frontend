@@ -9,9 +9,9 @@ function Home(){
     const checkUser = () => {
     const token = localStorage.getItem("authToken");
     if (!token) {
-        navigate("/login"); // ✅ this will navigate correctly
+        navigate("/login"); 
     } else {
-        navigate("/"); // or any other route you want to go if authenticated
+        navigate("/"); 
     }
     };
 

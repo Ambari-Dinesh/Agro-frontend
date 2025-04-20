@@ -6,7 +6,9 @@ import { UserContext } from "../UserContext";
 const AdminDashboard = () => {
   const { user } = useContext(UserContext);
 
-  if (!user || user.role !== "admin") {
+  console.log(user)
+
+  if (user.role !== "admin"||!user  ) {
     return <Navigate to="/login" />;
   }
 

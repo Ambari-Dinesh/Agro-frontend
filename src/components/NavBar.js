@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa"; // Import the icons
+import { FaBars, FaTimes } from "react-icons/fa"; 
 
 const NavBar = () => {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogout = () => {
-    // Remove token from localStorage
+    
     localStorage.removeItem("authToken");
-    // Redirect to login page
+ 
     navigate("/login");
   };
 
@@ -26,7 +26,7 @@ const NavBar = () => {
           <h1 className="text-xl font-bold">Agro Farm</h1>
         </div>
 
-        {/* Desktop Nav Items */}
+        {/* Desktop nav items */}
         <div className="hidden md:flex items-center space-x-6">
           <ul className="flex gap-6 text-lg font-semibold">
             <Link to={"/home"}>
@@ -49,7 +49,7 @@ const NavBar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Icon */}
+        {/* Mobile icon */}
         <div className="sm:hidden flex items-center">
           <button
             onClick={toggleMobileMenu}
@@ -64,7 +64,7 @@ const NavBar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu*/}
       {isMobileMenuOpen && (
         <div className="sm:hidden mt-4">
           <ul className="flex flex-col gap-4">

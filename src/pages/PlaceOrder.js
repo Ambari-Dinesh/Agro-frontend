@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "../api/axios";
 import { UserContext } from "../UserContext";
-import { useNavigate, useLocation } from "react-router-dom"; // Import useLocation for accessing passed state
+import { useNavigate, useLocation } from "react-router-dom"; 
 import {toast} from "react-hot-toast";
 import NavBar from "../components/NavBar";
 
@@ -16,9 +16,9 @@ function PlaceOrder() {
   const [message, setMessage] = useState("");
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
-  const location = useLocation(); // Use useLocation to get the passed product data
+  const location = useLocation(); 
 
-  const product = location.state?.product; // Access the passed product data
+  const product = location.state?.product; 
   form.productId=product.id
 
   useEffect(() => {
@@ -59,8 +59,8 @@ function PlaceOrder() {
        // Navigate to the home page or another page after success
     } catch (err) {
       
-      setMessage("❌ Order failed: " + (err.response?.data?.error || "Server error"));
-      console.log("Full error response:", err.response); // Log the entire error response
+      setMessage(" Order failed: " + (err.response?.data?.error || "Server error"));
+      console.log("Full error response:", err.response); 
    
    
     } finally {
@@ -121,7 +121,7 @@ function PlaceOrder() {
         <p>No product selected!</p>
       )}
 
-      {message && <p style={{ marginTop: "1rem", color: message.startsWith("✅") ? "green" : "red" }}>{message}</p>}
+      {message && <p style={{ marginTop: "1rem", color: message.startsWith("yes") ? "green" : "red" }}>{message}</p>}
     </form>
     </div>
     </>

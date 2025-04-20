@@ -13,7 +13,7 @@ function Login() {
   const { login } = useContext(UserContext);
   const navigate = useNavigate();
 
-  // Check if the user is already logged in
+ 
   const token = localStorage.getItem("authToken");
   if (token) {
     navigate('/');
@@ -23,27 +23,27 @@ function Login() {
     e.preventDefault();
     setLoading(true);
     
-    // Handle role-specific logic
+   
     if (role === "admin" && adminKey !== process.env.REACT_APP_ADMIN_SECRET_KEY) {
       setLoading(false);
       return toast.error("Invalid Admin Secret Key");
     }
 
     try {
-      // Send login request to the backend
+      
       const res = await axios.post("/auth/login", { email, password });
 
       const { user, token } = res.data;
 
-      // Store token and user role
+      
       localStorage.setItem("authToken", token);
       localStorage.setItem("userRole", user.role);
 
-      login(user); // Store the user in the context
+      login(user); 
 
       toast.success("Login Successful");
 
-      // Redirect based on user role
+     
       if (user.role === "admin") {
         navigate("/admin");
       } else {
@@ -93,7 +93,7 @@ function Login() {
             </select>
           </div>
 
-          {/* Show admin key input only if the role is admin */}
+          
           {role === "admin" && (
             <div className="mb-4">
               <input
